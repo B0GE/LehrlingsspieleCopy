@@ -1,0 +1,4 @@
+<?php
+
+?>
+<marquee>TEXT</marquee>

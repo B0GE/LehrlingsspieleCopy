@@ -1,0 +1,92 @@
+@media all and (min-width: 661px) {
+
+  button {
+      width: 300px;
+  }
+  /* DROPDOWNS */
+  .add_points {
+     min-height: 300px;
+     align-items: flex-start;
+  }
+  .add_points .input-container {
+    min-height: 300px;
+    align-items: flex-start;
+  }
+  .p_dropdown {
+    width: 45%;
+    margin: 12px 8px;
+  }
+  .p_dropdown ul li {
+    padding: 6px 12px;
+    font-size: 12pt;
+  }
+
+  /* NAVIGATION */
+  nav ul li a {
+    font-size: 4vw;
+  }
+
+  /* LOGIN */
+  .login-container form button {
+    width: 200px;
+    margin-top: 8px;
+  }
+
+  /* TEAM ERSTELLUNG */
+  .ci_submit {
+    width: 200px;
+    background-color: transparent;
+  }
+  .ci_submit.animate {
+    width: 300px;
+  }
+
+/* EINSTELLUNGEN */
+  .delete_popup {
+    width: 300px;
+  }
+
+  .popup_button, .ajax_button {
+    width: 150px;
+  }
+  .custom_white {
+    width: 80%;
+  }
+  .p_stage::before {
+    width: 100%;
+    padding: 12px 8px;
+  }
+  .p_stage.error::before {
+    bottom: -100px;
+  }
+  .error_container {
+    width: 300px;
+  }
+  .backup_container {
+    width: 300px;
+  }
+
+
+  /* TABLE STYLING */
+  .infoscreen {
+    justify-content: flex-start;
+  }
+  .table {
+    width: calc(70% - 2px);
+    order: 1;
+  }
+  .recent_games_container2 {
+    width: calc(30% - 2px);
+    margin-top: 0;
+    order: 2;
+    margin-left: 4px;
+  }
+  .recent_games_container2::before {
+    position: absolute;
+    content: "";
+    top: 0;
+    right: -4px;
+    width: 4px;
+    height: 100%;
+  }
+}

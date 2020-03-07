@@ -1,0 +1,782 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+html {
+  width: 100%;
+  overflow-x: auto;
+}
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  --delete-popup-height: 200px;
+  padding-bottom: 100px;
+  overflow-x: hidden;
+  width: 100%;
+}
+* {
+  position: relative;
+  box-sizing: border-box;
+
+  --standard-pink: rgba(208, 63, 113, 1);
+  --dark-pink: rgba(189, 56, 102, 1);
+  --standard-purple: rgb(98, 81, 161);
+  --dark-purple: rgb(81, 67, 135);
+  --error-green: #4CAF50;
+  --error-red: #F44336;
+}
+*::before {
+  box-sizing: border-box;
+}
+
+
+/* STANDART TEXT STYLES */
+h1,h2,h3,h4,h5,h6,p,a,ul,li {
+  margin: 0;
+  padding: 0;
+}
+p {
+  margin: 12px 0;
+}
+a {
+  color: white;
+  text-decoration: none;
+}
+h2 {
+  margin: 12px 0px 6px 0px;
+  padding: 0 6px;
+}
+
+/* GENERAL FORM STYLING */
+.input-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-content: flex-start;
+}
+input, button {
+  border: 4px solid var(--standard-pink);
+  color: var(--standard-pink);
+  outline: 0px;
+  padding: 4px;
+  height: 50px;
+  width: calc(45% + 2px);
+  text-align: center;
+  font-size: 13pt;
+  transition: 0.25s;
+  background-color: transparent;
+  overflow: hidden;
+}
+input:nth-child(even) {
+  margin-right: -4px;
+}
+input:focus {
+  background-color: var(--standard-pink);
+  color: #fff;
+}
+input::placeholder {
+  color: var(--standard-pink);
+}
+
+button {
+  background-color: var(--standard-purple);
+  border: 0;
+  color: #fff;
+  width: 100%;
+  transition: 0.3s;
+  cursor: pointer;
+  margin: 0;
+}
+button:hover {
+  background-color: var(--dark-purple);
+}
+.login_form {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+.login_form input {
+  width: calc(50% + 2px);
+}
+.login_form input:nth-child(even) {
+  margin-left: -4px;
+  margin-right: 0;
+}
+.login_form button {
+  margin-top: 8px;
+}
+
+
+
+
+/* DROPDOWNS */
+.add_points {
+  width: 100%;
+  z-index: 2;
+}
+.add_points button {
+  z-index: 3;
+}
+.p_dropdown {
+  width: 100%;
+
+  color: white;
+  height: 50px;
+  font-size: 13pt;
+  transition: 0.3s;
+  margin: 12px 0;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.active_value {
+  background-color: var(--standard-purple);
+  width: 100%;
+  height: 50px;
+  margin: 0;
+  padding: 15px 12px;
+  transition: 0.25s;
+}
+.active_value:hover {
+  background-color: var(--dark-purple);
+}
+.active_value.highlight {
+  background-color: var(--dark-purple);
+}
+
+.p_dropdown ul li {
+  background-color: var(--standard-pink);
+  padding: 12px;
+  transition: 0.25s;
+}
+.p_dropdown ul li:hover {
+  background-color: var(--dark-pink);
+}
+.p_dropdown ul li::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -2px;
+  background-color: var(--dark-pink);
+}
+.add_points {
+}
+.add_points .input-container {
+  max-width: none;
+}
+.add_points .ci_submit{
+  position: absolute;
+  top: 100%;
+
+}
+
+
+
+
+
+/* UNUSED FLEX */
+.flex {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+}
+
+
+/* NAVIGATION */
+nav {
+  position: fixed;
+  z-index: 1000;
+  width: 100%;
+  height: 100vh;
+  transition: 0.3s;
+  top:100%;
+  left: 0;
+  background-color: var(--standard-purple);
+  color: white;
+  overflow-y: auto;
+}
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  display: block;
+}
+nav ul li a {
+  width: 100%;
+  display: block;
+  text-align: center;
+  font-size: 8vw;
+  padding: 10px;
+  border-bottom: 2px solid #fff;
+  transition: 0.2s;
+  cursor: pointer;
+}
+nav ul li span {
+  transition: 0.3s;
+}
+nav ul li a.current {
+  background-color: var(--dark-purple);
+}
+nav ul li a span::after, nav ul li a span::before {
+  content: "";
+  width: 4px;
+  height: 60%;
+  background-color: #fff;
+  position: absolute;
+  top: 20%;
+  opacity: 0;
+  transition: 0.4s;
+  left: -5px;
+}
+nav ul li a span::before {
+  right: -5px;
+  left: initial;
+}
+nav ul li a.current span::after {
+  opacity: 1;
+  left: -20px;
+}
+nav ul li a.current span::before  {
+  opacity: 1;
+  right: -20px;
+}
+nav ul li a:hover {
+  background-color: var(--dark-purple);
+}
+nav ul li a:hover span:after {
+  opacity: 1;
+  left: -20px;
+}
+ nav ul li a:hover span:before {
+   opacity: 1;
+   right: -20px;
+ }
+
+/* MENU BUTTON */
+.menu-button {
+  position: fixed;
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  height: 50px;
+  bottom: 0;
+  left: 0;
+  z-index: 101;
+  background-color: var(--standard-purple);
+  padding: 6px;
+  cursor: pointer;
+  z-index: 1001;
+  transition: 0.25s;
+}
+.menu-button div {
+  width: 30px;
+  height: 5px;
+  background-color: white;
+  margin: 5px auto;
+  transition: 0.25s;
+}
+.menu-button div:first-child {
+  margin-top: 7px;
+}
+
+.changeColor {
+  background-color: transparent;
+}
+.changeColor div {
+  background-color: #fff;
+}
+.changeColor div:nth-child(1) {
+  transform: rotateZ(-45deg) translateY(14px);
+}
+.changeColor div:nth-child(2) {
+  opacity:0;
+}
+.changeColor div:nth-child(3) {
+  transform: rotateZ(45deg) translateY(-14px);
+}
+
+
+
+/* LOGIN */
+.login-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.login-container form {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+.login-container form button {
+  margin-top: 8px;
+  width: 90%;
+}
+.login-container form input {
+  margin-right: -2px;
+  margin-top: 4px;
+}
+.login-container form input:nth-child(even) {
+  margin-right: -0;
+  margin-left: -2px;
+}
+
+/* TEAMS*/
+.register_teams {
+  width: 100%;
+  height: 100vh;
+}
+.register_teams > .input-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  /*background-color: var(--standard-background);*/
+  padding: 10px 0 72px 0;
+}
+.register_teams .input-container .ci_member {
+  margin-bottom: -4px;
+}
+.register_teams .input-container .ci_teamname {
+  width: 90%;
+  font-size: 18pt;
+  margin-bottom: 8px;
+}
+
+
+
+.ci_submit {
+  position: absolute;
+  width: 90%;
+  background-color: var(--standard-purple);
+  height: 50px;
+  transition: 0.3s;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 172px;
+  overflow: hidden;
+  text-align: center;
+  color: #fff;
+}
+.ci_submit.animate {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  height: 200px;
+}
+.ci_submit button {
+  width: 100%;
+  z-index: 10;
+}
+.ci_error_handler {
+  width: 100%;
+  padding: 4px;
+}
+.ci_submit p {
+  color: #fff;
+  transition: 0.2s;
+  opacity: 1;
+}
+.ci_submit svg {
+  position: absolute;
+  height: 80px;
+  top: 58%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: 0.3s;
+  z-index: 1;
+  opacity: 0;
+  cursor: pointer;
+}
+.ci_submit.succes {
+  background-color: var(--error-green);
+}
+.ci_submit.error {
+  background-color: var(--error-red);
+}
+.ci_submit.succes .succes_svg, .ci_submit.error .error_svg, .ci_submit.animate p {
+  opacity: 1;
+}
+
+
+
+
+/* Einstellungen */
+.setting_container {
+  width: 100%;
+  height: 100vh;
+  justify-content: flex-start;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.25s;
+  left: 0;
+}
+
+.delete_buttons {
+ margin-bottom: 0px;
+}
+.delete_buttons:last-child {
+  margin: 0;
+}
+
+.delete_popup {
+  position: absolute;
+  width: 100%;
+  height: 50px;
+  transition: 0.3s;
+  left: 0;
+  background-color: var(--standard-purple);
+  color: white;
+  text-align: center;
+  overflow: hidden;
+}
+.delete_popup:first-child {
+  top:0;
+}
+.delete_popup:nth-child(2) {
+  top: 54px;
+}
+.delete_popup:nth-child(3) {
+  top: 108px;
+}
+.delete_popup:nth-child(4) {
+  top: 162px;
+}
+.delete_popup.animate {
+  top: calc(100% - var(--delete-popup-height));
+  left: 50%;
+  transform: translateX(-50%);
+  height: var(--delete-popup-height);
+  width: 100%;
+  z-index: 100;
+  background-color: var(--standard-purple);
+}
+
+.delete_popup p {
+  padding: 0 4px;
+  width: 100%;
+}
+
+.popup_button, .ajax_button {
+  width: calc(45% - 8px);
+  background-color: transparent;
+  border: 2px solid #fff;
+  margin: 0 8px;
+}
+.ajax_button:first-child  {
+  margin-right: 0;
+  margin-left: 8px;
+}
+.popup_button:hover, .ajax_button:hover {
+}
+
+input.custom_white {
+  border: 2px solid #fff;
+  width: 90%;
+  margin-bottom: 8px;
+  color: white;
+}
+input.custom_white:focus {
+  border-color: #fff!important;
+}
+
+.p_stage {
+  position: absolute;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.25s;
+  padding: 0 4px;
+  width: 100%;
+}
+.p_stage > * {
+  transition: 0.25s;
+}
+.p_stagep, .p_stage button {
+  transition-delay: 0.1s;
+  transition: 0.25s;
+    transform: scale(0.4) skewX(180deg);
+}
+.p_stage.show {
+  opacity: 1;
+  visibility: visible;
+}
+.p_stage.show p, .p_stage.show button {
+  transform: scale(1) skewX(0deg);
+}
+.p_stage.error .custom_white {
+  border-color: var(--error-red);
+}
+.p_stage::before {
+  content: attr(data-target);
+  position: absolute;
+  bottom: -140px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: auto;
+  opacity: 0;
+  transition: 0.25s;
+  background-color: var(--error-red);
+  padding: 8px;
+}
+.p_stage.error::before {
+  opacity: 1;
+  bottom: -80px ;
+}
+.backup_container {
+  position: absolute;
+  top: 226px;
+  left: 0;
+  width: 100%;
+  transform: translate(0, 0);
+}
+
+
+
+/* SUCCESS MESSAGE */
+  .dump_div_container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  padding: 8px 8px 16px 8px;
+  width: 90%;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 1;
+  background-color: var(--error-green);
+  color: white;
+  text-align: center;
+  transition: 0.3s;
+}
+.dump_div_container svg {
+  height: 80px;
+  cursor: pointer;
+}
+.dump_div_container.show, .error_container.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+table, tbody, tr, th, td {
+  margin: 0;
+  padding: 0;
+}
+
+/* TABLE*/
+.infoscreen {
+  width: 100%;
+}
+.infoscreen > div {
+  align-self: flex-start;
+}
+.table {
+  width: 100%;
+  color: white;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  font-size: 11pt;
+}
+.table div, .recent_games_container div {
+  width: 50%;
+  padding: 12px;
+  background-color: var(--standard-pink);
+}
+.table .heading {
+  font-size: 12pt;
+  background-color: var(--standard-purple);
+}
+.table div:nth-child(even), .recent_games_container div:nth-child(even) {
+  padding-left: 18px;
+}
+.table div:not(.heading):nth-child(odd)::before,
+.recent_games_container div:not(.heading):nth-child(odd)::before  {
+  content: "";
+  position: absolute;
+  right: -2px;
+  top: 0;
+  width: 4px;
+  height: 100%;
+  background-color: var(--dark-pink);
+}
+.table div:not(.heading)::after,
+.recent_games_container div:not(.heading)::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: var(--dark-pink);
+}
+.table div:nth-last-child(2)::after, .table div:last-child::after,
+.recent_games_container div:nth-last-child(2)::after, .recent_games_container div:last-child::after {
+  height: 0;
+}
+
+
+.recent_games_container2 {
+  margin-top: 4px;
+}
+.recent_games_container, .recent_games_container2 {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  color: white;
+}
+.recent_games_container2 .heading {
+  text-align: center;
+  width: 100%;
+  padding: 12px;
+  height: 43px;
+  background-color: var(--standard-purple);
+}
+.recent_games {
+  width: 50%;
+  padding: 12px;
+  font-size: 11pt;
+}
+
+
+
+.quidditch_container {
+    width: 100%;
+}
+/* Quiditch dreck */
+.all_teams {
+ width: 100%;
+ color: white;
+}
+.all_teams h3  {
+  width: 100%;
+}
+.all_teams .gesamtpunkte {
+  width: 100%;
+}
+
+.all_teams .team_points , .all_teams .teams_heading  {
+  width: 100%;
+  justify-content: center;
+}
+.all_teams .team_points div, .all_teams .teams_heading div {
+  width: 80%;
+  padding: 6px;
+}
+.all_teams .team_points div:first-child, .all_teams .teams_heading div:first-child {
+  width: 20%;
+}
+
+.all_teams .teams_heading div {
+  background-color: var(--standard-purple);
+  padding: 8px 6px;
+}
+.all_teams .team_points div {
+  background-color: var(--standard-pink);
+  border-bottom: 2px solid var(--dark-pink);
+  border-right: 2px solid var(--dark-pink);
+  font-size: 11pt;
+}
+.all_teams .team_points div:last-child {
+  border-right: 0;
+}
+
+.form_container {
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 44px;
+}
+.form_container h3, .all_teams h3, .einträge_gesamt_container h3  {
+  padding: 6px;
+  color: var(--dark-purple);
+}
+.form_container form {
+  width: 48%;
+}
+.form_container form select {
+  width: 100%;
+  background-color: var(--standard-purple);
+  border: 0;
+  outline: 0;
+  padding: 6px;
+  color: white;
+}
+.button_container button {
+  margin-top: 6px;
+}
+.button_container button:first-child {
+  margin-top: 12px;
+}
+.success_error {
+  width: 100%;
+  position: absolute;
+  bottom: -50px;
+  padding: 8px 16px;
+  height: 50px;
+  background-color: var(--standard-pink);
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.25s;
+  color: white;
+  font-size: 10pt;
+}
+.success_error.animate {
+  bottom: -34px;
+  opacity: 1;
+  visibility: visible;
+}
+
+
+.einträge_gesamt_container {
+  margin-top: 44px;
+  width: 100%;
+}
+.heading {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+.einträge_container {
+  width: 100%;
+}
+.einträge_container .einträge {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+.einträge_container .einträge div, .heading div {
+  width: 40%;
+  padding: 6px;
+}
+.einträge_container .einträge div:first-child,.heading div:first-child {
+  width: 20%;
+}
+.heading div {
+  background-color: var(--standard-purple);
+  color: white;
+  padding: 12px 6px;
+}
+
+.einträge_container .einträge div {
+  background-color: var(--standard-pink);
+  color: white;
+  font-size: 11pt;
+  border-bottom: 2px solid var(--dark-pink);
+  border-right: 2px solid var(--dark-pink);
+}
+.einträge_container .einträge div:last-child {
+  border-right: 0;
+}

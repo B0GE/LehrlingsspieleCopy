@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+		<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+		<script type="text/javascript" src="js/AppChange.js"></script>
+		<script type="text/javascript">
+					$(document).bind('mobileinit',function()    					 
+			    	{
+			       	 	$.mobile.changePage.defaults.changeHash = false;			
+			        	$.mobile.hashListeningEnabled = false;						
+			        	$.mobile.pushStateEnabled = false;							
+		    		});
+		</script>
+		<link rel="stylesheet" href="css/jquery.mobile.structure-1.4.5.min.css">
+		<link rel="stylesheet" href="css/jquery.mobile.inline-svg-1.4.5.min.css">
+		<link rel="stylesheet" href="css/jquery.mobile.inline-png-1.4.5.min.css">
+		<link rel="stylesheet" href="css/jquery.mobile.external-png-1.4.5.min.css">
+		<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">	
+		<link rel="stylesheet" href="css/jquery.mobile.theme-1.4.5.min.css">
+		<link rel="stylesheet" href="css/jquery.mobile.icons-1.4.5.min.css">
+		<script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
+	</head>
+	<body>
+	<p style="display:none" id="aufgabeID">C<p>
+		<div id="Home" data-url="Home" data-role="page">
+			<div data-role="header">
+				<a href="app.html" id="btn_back" data-icon="delete">Zurück</a>
+				<h1>XXL Volleyball</h1>
+			</div>
+			<div data-role="content">
+				<div data-role="fieldcontain">
+					<label for="sel_tw12">Team</label>
+					<select name="sel_tw12" id="TeamName" data-native-menu="false">
+					</select>
+				</div>
+				<div data-role="fieldcontain">
+					<label for="sel_tw15">Punkte</label>
+					<select name="sel_tw15" id="points" data-native-menu="false">
+				<option value="0">Nicht teilgenommen</option><option value="5">Niederlage</option><option value="10">Sieg</option></select>				</div>
+				<input id="btn_submit" type="button" value="Aktualisieren"/>
+
+				<div id="table-data">
+					<table data-role="table" class="ui-responsive">
+						<thead>
+							<th>TEAM</th>
+							<th>POINTS</th>		
+						</thead>
+						<tbody id="tbody">
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

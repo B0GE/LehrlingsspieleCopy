@@ -1,0 +1,133 @@
+html
+{
+	margin:0px;
+	padding: 0px;
+}
+body
+{
+	margin:0px;
+	padding: 0px;
+}
+table	
+{
+	min-width: 100%;
+	min-height: 100%;
+}
+
+.datagrid table
+{ 
+	border-collapse: collapse; text-align: left; width: 100%;
+
+} 
+.datagrid 
+{
+	font: normal 15px/150% Arial, Helvetica, sans-serif; 
+	background: #fff; 
+	overflow: hidden;
+	border: 1px solid #000000; 
+	-webkit-border-radius: 3px; 
+	-moz-border-radius: 3px; 
+	border-radius: 3px; 
+	z-index: 1;
+}
+.datagrid table td, .datagrid table th 
+{ 
+	padding: 3px 10px; 
+}
+.datagrid table thead th 
+{
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #878283), color-stop(1, #000000) );
+	background:-moz-linear-gradient( center top, #878283 5%, #000000 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#878283', endColorstr='#000000');
+	background-color:#878283; 
+	color:#FFFFFF; 
+	font-size: 50px;
+	font-weight: normal; 
+	border-left: 0px solid #A8A8A8; 
+	height: 124px;
+	text-align: center;
+} 
+.datagrid table thead th:first-child
+{ 
+	border: none; 
+}
+.datagrid table tbody td 
+{ 
+	color: #6B394B; font-size: 30px;
+	font-weight: normal; 
+}
+.datagrid table tbody .alt td 
+{ 
+	background: #F4F4F4; color: #00496B; 
+}
+.datagrid table tbody td:first-child 
+{ 
+	border-left: none; 
+}
+.datagrid table tbody tr:last-child td 
+{ 
+	border-bottom: none;
+	margin-left: 100%; 
+}
+#footer {
+    margin-top: 90px;
+    position: fixed;
+    bottom: 2px;
+    left: 0px;
+    display: flex;
+    height: 296px;
+    width: 100%;
+    background-image: url('http://www.it-lab.ktn.at/wp-content/uploads/2012/11/back421.png') !important;
+    background-position: bottom left !important;
+    background-repeat: no-repeat !important;
+}
+div.datagrid
+{
+	align-content: center;
+    width: 70%;
+    position: absolute;
+    top: 30px;
+    right: 30px;
+   
+}
+.logos
+{
+    bottom: 0px;
+    left: 0px;
+    display: flex;
+}
+#LandKtn {
+    height: 47px;
+    position: fixed;
+    bottom: 400px;
+    left: 50px;
+
+}
+#BfiItLab {
+    height: 175px;
+    position: fixed;
+    bottom: 650px;
+    left: 114px;
+
+    
+}
+
+td{
+	text-align: center;
+
+	border-bottom: solid #E3E3E3 0.0001em;
+}
+
+table{
+	zoom: 80%;
+	padding-right: 5%;
+	 max-height: 400px;
+}
+
+table th{
+	padding-top: opx;
+	border: none !important;
+}
+/*label{
+	visibility: hidden;
+}*/
